@@ -1,0 +1,72 @@
+html {
+    background-color: #19191b !important;
+}
+
+html,
+body,
+input,
+textarea,
+select,
+button {
+    background-color: #19191b;
+}
+
+html,
+body,
+input,
+textarea,
+select,
+button {
+    border-color: #5d5b56;
+    color: #f8f0e1;
+}
+
+a {
+    color: #4d94e5;
+}
+
+table {
+    border-color: #514f4b;
+}
+
+::placeholder {
+    color: #c5bbab;
+}
+
+::selection {
+    background-color: #165db2;
+    color: #fffffc;
+}
+
+::-moz-selection {
+    background-color: #165db2;
+    color: #fffffc;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #585b0e !important;
+    color: #f8f0e1 !important;
+}
+
+::-webkit-scrollbar {
+    background-color: #1d1d20;
+    color: #d1c8b9;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #292c31;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2f343b;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #373f4a;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #19191b;
+}

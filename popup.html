@@ -1,0 +1,61 @@
+<!doctype html>
+<!--
+这个页面展示了当扩展按钮被点击后展示的页面，在 manifest.json 中需要配置
+ -->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>改变背景</title>
+    <style type="text/css">
+        body {
+            margin: 10px;
+            white-space: nowrap;
+            width: 250px;
+            height: 300px;
+        }
+
+        h1 {
+            font-size: 15px;
+        }
+
+        #container {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+		.picker{
+			width: 20px;
+			height: 20px;
+            background-color: pink;
+            /* margin-top:250px; */
+		}
+    </style>
+    <!--
+      - JavaScript和HTML必须放在单独的文件中。
+      - 可以通过下面的链接查看解释（需科学访问）
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+</head>
+
+<body>
+    <h1>背景颜色更改</h1>
+    <div id="container">
+        <span>点击下方粉色区域选择一个你喜欢的颜色</span>
+        <!-- <select id="dropdown">
+            <option selected disabled hidden value=''></option>
+            <option value="white">White</option>
+            <option value="pink">Pink</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="blue">blue</option>
+        </select>        -->
+    </div>
+    <div class="picker"></div>
+</body>  
+<script src="./js/jquery-1.12.2.js"></script> 
+<!-- <script src="./js/paigusu.min.js"></script> -->
+<script src="./js/colorpicker.js"></script>
+<script src="popup.js"></script> 
+</html>
