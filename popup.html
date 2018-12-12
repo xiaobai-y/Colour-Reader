@@ -7,30 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>改变背景</title>
-    <style type="text/css">
-        body {
-            margin: 10px;
-            white-space: nowrap;
-            width: 250px;
-            height: 300px;
-        }
-
-        h1 {
-            font-size: 15px;
-        }
-
-        #container {
-            align-items: center;
-            display: flex;
-            justify-content: space-between;
-        }
-		.picker{
-			width: 20px;
-			height: 20px;
-            background-color: pink;
-            /* margin-top:250px; */
-		}
-    </style>
+    <link rel="stylesheet" href="./css/popup.css">
     <!--
       - JavaScript和HTML必须放在单独的文件中。
       - 可以通过下面的链接查看解释（需科学访问）
@@ -40,7 +17,7 @@
 </head>
 
 <body>
-    <h1>背景颜色更改</h1>
+    <h1>COLOUR READER</h1>
     <div id="container">
         <span>点击下方粉色区域选择一个你喜欢的颜色</span>
         <!-- <select id="dropdown">
@@ -53,9 +30,10 @@
         </select>        -->
     </div>
     <div class="picker"></div>
+    <input type="file">
+    <div class="btn">确订用这张?</div>
 </body>  
 <script src="./js/jquery-1.12.2.js"></script> 
-<!-- <script src="./js/paigusu.min.js"></script> -->
 <script src="./js/colorpicker.js"></script>
 <script src="popup.js"></script> 
 </html>

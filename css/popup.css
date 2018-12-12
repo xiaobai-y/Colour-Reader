@@ -1,0 +1,28 @@
+body {
+  width: 250px;
+  height: 300px;
+  background-color: #00222B;
+  color: #fff;
+}
+h1 {
+  font-size: 15px;
+  color: #E96C4C;
+  font-size: 30px;
+  text-align: center;
+}
+#container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.picker {
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  /* margin-top:250px; */
+}
+.btn {
+  /* width: 20px;
+    height: 10px; */
+  background-color: skyblue;
+}

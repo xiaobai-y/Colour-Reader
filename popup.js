@@ -28,7 +28,7 @@ $(function(){
       // hex：当前选中颜色的hex值     
       elem.style.backgroundColor = hex;
       changeBackgroundColor(hex);
-      saveBackgroundColor(url, hex);
+      // saveBackgroundColor(url, hex);
     }
 })
 
