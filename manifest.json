@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Reader Color",
+    "version": "1.0",
+    "description": "可以改变你的网页背景颜色",
+    "icons": {
+        "16": "images/contact.png",
+        "48": "images/home-active.png",
+        "128": "images/message.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/home-active.png",
+            "38": "images/profile.png"
+        },
+        "default_title": "Reader Color",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+      ]
+}
