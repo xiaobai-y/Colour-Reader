@@ -17,21 +17,19 @@
 </head>
 
 <body>
-    <h1>COLOUR READER</h1>
     <div id="container">
-        <span>点击下方粉色区域选择一个你喜欢的颜色</span>
-        <!-- <select id="dropdown">
-            <option selected disabled hidden value=''></option>
-            <option value="white">White</option>
-            <option value="pink">Pink</option>
-            <option value="green">Green</option>
-            <option value="yellow">Yellow</option>
-            <option value="blue">blue</option>
-        </select>        -->
+        <h1>COLOUR READER</h1>       
+        <div class="picker">点我选颜色</div>
+        <div class="ufc">
+            <a href="javascript:;" class="upload">
+                <input type="file" name="" id="">点我选图片          
+            </a>
+            <div class="showFileName">上传图片</div>
+            <div class="fileerrorTip"></div>
+        </div>
+        
+        <!-- <div class="btn">确订用这张?</div> -->
     </div>
-    <div class="picker"></div>
-    <input type="file">
-    <div class="btn">确订用这张?</div>
 </body>  
 <script src="./js/jquery-1.12.2.js"></script> 
 <script src="./js/colorpicker.js"></script>

@@ -1,25 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
-  width: 250px;
+  width: 260px;
   height: 300px;
   background-color: #00222B;
   color: #fff;
 }
-h1 {
+#container {
+  /*upload */
+}
+#container h1 {
   font-size: 15px;
   color: #E96C4C;
   font-size: 30px;
   text-align: center;
 }
-#container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-.picker {
-  width: 20px;
+#container .picker {
+  width: 80px;
   height: 20px;
-  background-color: pink;
-  /* margin-top:250px; */
+  border: 2px solid #216778;
+  text-align: center;
+  padding: 3px 20px;
+  font-size: 12px;
+  margin: 10px auto;
+}
+#container .picker:hover {
+  background: #216778;
+  background: rgba(33, 103, 120, 0.5);
+  text-decoration: none;
+}
+#container .ufc {
+  display: flex;
+}
+#container .ufc .upload {
+  width: 120px;
+  padding: 3px 10px;
+  height: 30px;
+  line-height: 20px;
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+  border: 2px solid #216778;
+  display: inline-block;
+}
+#container .ufc .upload input {
+  position: absolute;
+  font-size: 2px;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+#container .ufc .showFileName,
+#container .ufc .fileerrorTip {
+  flex: 1;
+  align-self: flex-end;
+  font-size: 12px;
+  padding-left: 5px;
+}
+#container .ufc .upload:hover {
+  background: #216778;
+  background: rgba(33, 103, 120, 0.5);
+  text-decoration: none;
 }
 .btn {
   /* width: 20px;
