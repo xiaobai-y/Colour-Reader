@@ -1,5 +1,4 @@
 $(function () {
-
   // 显示上传图片的名称
   $(".upload").on("change", "input[type='file']", function () {
     var filePath = $(this).val();
@@ -11,11 +10,11 @@ $(function () {
     } else {
       $(".showFileName").html("").hide();
       $(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
-      return false
+      return false;
     }
   })
 
-  //js 读取文件
+  //js 读取计算机中的图片
   function jsReadFiles(files) {
     if (files.length) { //判断是否上传了文件
       var file = files[0];
@@ -29,30 +28,28 @@ $(function () {
     }
   }
   // 获取URL
-  function getCurrentTabUrl() {
+  function getCurrentTabUrl(callback) {
+    let queryInfo = {
+      active: true,
+      currentWindow: true
+    };
 
-    chrome.tabs.getSelected(null, function (tab) {
-      url = tab.url;
-      return url;
+    chrome.tabs.query(queryInfo, (tabs) => {
+      let url = tab.url;
+      console.assert(typeof url === 'string', 'tab.url should be a string');
+      callback(url);
     });
-    // queryInfo就是随query的一个配置
-    // let queryInfo = {
-    //   active: true,
-    //   currentWindow: true
-    // };
-
-    // chrome.tabs.query(queryInfo, (tabs) => {
-    //   //原文这里的大致意思就是 只要能点击这个按钮 肯定是存在一个tab 所有tabs不会为空。
-    //   let tab = tabs[0];
-
-    //   // tab包含的选项卡的一些信息。
-    //   // See https://developer.chrome.com/extensions/tabs#type-Tab
-    //   let url = tab.url;
-    //   console.assert(typeof url === 'string', 'tab.url should be a string');
-    //   callback(url);
-    // });
   }
 
+  // 选择颜色后改变背景颜色并保存。
+  function getColor(color) {
+    //return color;
+    getCurrentTabUrl((url)=>{
+      changeBackgroundColor(color);
+      saveBackgroundColor(url,color)
+    })
+    
+  }
   // 初始化拾色器插件
   Colorpicker.create({
     bindClass: 'picker', // 这里的picker可随意填类名
@@ -63,10 +60,6 @@ $(function () {
       getColor(hex);
     }
   })
-
-  function getColor(color) {
-    changeBackgroundColor(color);
-  }
  
   //  改变当前页面的背景颜色。
   function changeBackgroundColor(color) {
@@ -91,58 +84,28 @@ $(function () {
       code: script
     });
   }
-  /**
-   * 取出保存的页面背景颜色 如果用户曾经用插件改变过这个页面的背景颜色。
-   *
-   * @param {string} url URL whose background color is to be retrieved.
-   * @param {function(string)} callback called with the saved background color for
-   *     the given url on success, or a falsy value if no color is retrieved.
-   */
+
+  //  取出保存的页面背景颜色 如果曾经用插件改变过这个页面的背景颜色。
   function getSavedBackgroundColor(url, callback) {
-    // See https://developer.chrome.com/apps/storage#type-StorageArea. We check
-    // for chrome.runtime.lastError to ensure correctness even when the API call
-    // fails.
+    // https://developer.chrome.com/apps/storage#type-StorageArea
     chrome.storage.sync.get(url, (items) => {
       callback(chrome.runtime.lastError ? null : items[url]);
     });
   }
 
-  /**
-   * 用来保存用户选择的背景颜色的函数
-   *
-   * @param {string} url URL for which background color is to be saved.
-   * @param {string} color The background color to be saved.
-   */
-  function saveBackgroundColor(color) {
-    getCurrentTabUrl();
+    // 用来保存选择的背景颜色 
+  function saveBackgroundColor(url,color) {
     let items = {};
     items[url] = color;
-    // See https://developer.chrome.com/apps/storage#type-StorageArea. We omit the
-    // optional callback since we don't need to perform any action once the
-    // background color is saved.
     chrome.storage.sync.set(items);
   }
 
   // 插件会先加载用户上次选择的颜色，如果存在的话。
-
-  document.addEventListener('DOMContentLoaded', () => {
-    getCurrentTabUrl((url) => {
-
-      // let picker = $('.picker');
-
-      // Load the saved background color for this page and modify the picker
-      // value, if needed.
-      getSavedBackgroundColor(url, (savedColor) => {
-        if (savedColor) {
-          changeBackgroundColor(savedColor);
-          picker.value = savedColor;
-        }
+      getCurrentTabUrl((url) => {
+          getSavedBackgroundColor(url, (savedColor) => {
+              if (savedColor) {
+                changeBackgroundColor(savedColor);
+              }
+            });
       });
-      // 用户选择新的颜色  保存。
-      // picker.addEventListener('change', () => {
-      //   changeBackgroundColor(picker.value);
-      //   saveBackgroundColor(url, picker.value);
-      // });
-    });
-  });
 })
