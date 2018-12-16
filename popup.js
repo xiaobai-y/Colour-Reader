@@ -101,11 +101,11 @@ $(function () {
   }
 
   // 插件会先加载用户上次选择的颜色，如果存在的话。
-      getCurrentTabUrl((url) => {
-          getSavedBackgroundColor(url, (savedColor) => {
-              if (savedColor) {
-                changeBackgroundColor(savedColor);
-              }
-            });
-      });
+    getCurrentTabUrl((url) => {
+        getSavedBackgroundColor(url, (savedColor) => {
+            if (savedColor) {
+              changeBackgroundColor(savedColor);
+            }
+          });
+    });
 })
