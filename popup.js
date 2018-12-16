@@ -34,7 +34,7 @@ $(function () {
       currentWindow: true
     };
 
-    chrome.tabs.query(queryInfo, (tabs) => {
+    chrome.tabs.query(queryInfo, (tab) => {
       let url = tab.url;
       console.assert(typeof url === 'string', 'tab.url should be a string');
       callback(url);
